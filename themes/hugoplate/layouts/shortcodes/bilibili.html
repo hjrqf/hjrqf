@@ -1,32 +1,29 @@
-<!DOCTYPE HTML>
-<html lang="en">
-<head>
-  <style type="text/css">
-      .bilibili_shortcodes {
-          position: relative;
-          width: 100%;
-          height: 0;
-          padding-bottom: 66%;
-          margin: auto;
-          overflow: hidden;
-          text-align: center;
-      }
-      /* 嵌入视频的宽高在这里调！ */
-      .bilibili_shortcodes iframe {
-          position: absolute;
-          width: 80%;
-          height: 80%;
-          left: 0;
-          top: 0;
-      }
-  </style>
-  <title></title>
-</head>
-<body>
+<!-- layouts/shortcodes/bilibili.html -->
 <div class="bilibili_shortcodes">
   <iframe
-      src="https://player.bilibili.com/player.html?bvid={{.Get 0 }}&page={{ if .Get 1 }}{{.Get 1}}{{ else }}1&high_quality=1&danmaku=0&autoplay=0&as_wide=0{{end}}" scrolling="no" border="0" frameborder="no" framespacing="0" allowfullscreen="true">
+    src="https://player.bilibili.com/player.html?bvid={{ .Get 0 }}&page={{ if .Get 1 }}{{ .Get 1 }}{{ else }}1{{ end }}&high_quality=1&danmaku=0&autoplay=0&as_wide=0"
+    scrolling="no" 
+    frameborder="0" 
+    allowfullscreen="true">
   </iframe>
 </div>
-</body>
-</html>
+
+<style>
+  .bilibili_shortcodes {
+    position: relative;
+    width: 100%;
+    height: 0;
+    padding-bottom: 66%; /* 控制宽高比例 */
+    margin: auto;
+    overflow: hidden;
+    text-align: center;
+  }
+
+  .bilibili_shortcodes iframe {
+    position: absolute;
+    width: 80%;
+    height: 80%;
+    left: 0;
+    top: 0;
+  }
+</style>
